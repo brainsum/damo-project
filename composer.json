@@ -50,6 +50,9 @@
         ]
     },
     "extra": {
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patches": {},
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
