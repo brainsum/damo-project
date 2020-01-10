@@ -26,14 +26,14 @@ composer create-project brainsum/damo-project:0.1.0 my-damo-project
 
 ### Composer in docker
 
-For the latest version:
+For the latest release:
 ```shell script
-mkdir my-damo-project && docker run --rm -u "$(id -u)":"$(id -g)" -w /app --mount type=bind,src="$(pwd)"/my-damo-project,dst=/app wodby/drupal-php:7.3-dev-4.14.3 composer create-project brainsum/damo-project .
+DAMO_PROJECT_DIR=my-damo-project; mkdir "${DAMO_PROJECT_DIR}" && docker run --rm -u "$(id -u)":"$(id -g)" -w /app --mount type=bind,src="$(pwd)"/"${DAMO_PROJECT_DIR}",dst=/app wodby/drupal-php:7.3-dev-4.14.3 composer create-project brainsum/damo-project .
 ```
 
-For a specific version:
+For a specific release:
 ```shell script
-mkdir my-damo-project && docker run --rm -u "$(id -u)":"$(id -g)" -w /app --mount type=bind,src="$(pwd)"/my-damo-project,dst=/app wodby/drupal-php:7.3-dev-4.14.3 composer create-project brainsum/damo-project:0.1.0 .
+DAMO_PROJECT_DIR=my-damo-project; mkdir "${DAMO_PROJECT_DIR}" && docker run --rm -u "$(id -u)":"$(id -g)" -w /app --mount type=bind,src="$(pwd)"/"${DAMO_PROJECT_DIR}",dst=/app wodby/drupal-php:7.3-dev-4.14.3 composer create-project brainsum/damo-project:0.1.0 .
 ```
 
 Note: The wodby/drupal-php image is just an example.
