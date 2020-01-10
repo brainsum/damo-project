@@ -42,3 +42,4 @@ web/sites/*.dd
 .gitattributes
 
 docker-compose.local.yml
+/drush/drush.yml

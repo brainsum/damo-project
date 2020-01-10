@@ -43,6 +43,10 @@ Note: Using an image with the `hirak/prestissimo` composer package will speed up
 
 ### (Optional) Docker-compose
 
-If you want to use docker-compose for development, you should copy `example.env` as `.env`, e.g `cp example.env .env`.
+If you want to use docker-compose for development, you should copy `example.env` as `.env`, e.g `cp example.env .env`. Update its contents as required.
 
 For starting and stopping the environment you can use the helper scripts provided with the project (`startup.sh` and `shutdown.sh`). These also look for a `docker-compose.local.yml` file so you can version control a generic config file and do local overrides (e.g ports, mounts).
+
+### Drush
+
+Copy `drush/example.drush.yml` as `drush/drush.yml`. Update its contents as required.
