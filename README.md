@@ -8,6 +8,41 @@ This template was based on the following:
 - [Drupal recommended project](https://www.drupal.org/docs/develop/using-composer/starting-a-site-using-drupal-composer-project-templates)
 - [Thunder distro](https://github.com/thunder/thunder-project).
 
+## Installation
+
+Note: These commands have been tested on linux (ubuntu), they might need changes to work on other systems.
+
+### Native composer
+
+For the latest version:
+```shell script
+composer create-project brainsum/damo-project my-damo-project
+```
+
+For a specific version:
+```shell script
+composer create-project brainsum/damo-project:0.1.0 my-damo-project
+```
+
+### Composer in docker
+
+For the latest version:
+```shell script
+mkdir my-damo-project && docker run --rm -u "$(id -u)":"$(id -g)" -w /app --mount type=bind,src="$(pwd)"/my-damo-project,dst=/app wodby/drupal-php:7.3-dev-4.14.3 composer create-project brainsum/damo-project .
+```
+
+For a specific version:
+```shell script
+mkdir my-damo-project && docker run --rm -u "$(id -u)":"$(id -g)" -w /app --mount type=bind,src="$(pwd)"/my-damo-project,dst=/app wodby/drupal-php:7.3-dev-4.14.3 composer create-project brainsum/damo-project:0.1.0 .
+```
+
+Note: The wodby/drupal-php image is just an example.
+Note: Using an image with the `hirak/prestissimo` composer package will speed up the process, although it also might break things (see: <https://github.com/drupal-composer/drupal-scaffold/issues/101>).
+
 ## Setup
 
+### (Optional) Docker-compose
 
+If you want to use docker-compose for development, you should copy `example.env` as `.env`, e.g `cp example.env .env`.
+
+For starting and stopping the environment you can use the helper scripts provided with the project (`startup.sh` and `shutdown.sh`). These also look for a `docker-compose.local.yml` file so you can version control a generic config file and do local overrides (e.g ports, mounts).
