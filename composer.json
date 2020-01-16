@@ -34,7 +34,7 @@
     },
     "require": {
         "php": "^7.2",
-        "brainsum/damo-distribution": "^0.4",
+        "brainsum/damo-distribution": "^0.5",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal/core-composer-scaffold": "^8.8",
