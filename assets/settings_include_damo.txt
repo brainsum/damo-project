@@ -1,0 +1,3 @@
+if (file_exists(__DIR__ . '/../damo.settings.php')) {
+  include_once __DIR__ . '/../damo.settings.php';
+}

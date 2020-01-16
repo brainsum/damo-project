@@ -69,6 +69,13 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/default.settings.php": {
+                    "append": "assets/settings_include_damo.txt"
+                },
+                "[web-root]/sites/damo.settings.php":  "assets/damo.settings.php",
+                "[web-root]/sites/docker.settings.php":  "assets/docker.settings.php"
             }
         },
         "installer-paths": {
@@ -86,19 +93,29 @@
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
                 "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
+                "<bg=blue;fg=white>  from the brainsum/damo-project template!               </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
 
-                "  * Install the site: https://www.drupal.org/docs/8/install",
+                "  * Remove the plugin that prints this message:",
+                "      composer remove drupal/core-project-message",
+                "  * Update .env and drush/drush.yml as needed",
+                "  * Fix directory permissions (e.g 770 with <web-server>:<current-user> for web/sites/default/files).",
+                "  * Install the site using the damo profile: https://www.drupal.org/docs/8/install",
+                "    * E.g for a local docker setup (for development): drush site-install --account-pass=123 damo -y",
                 "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
                 "  * Get support: https://www.drupal.org/support",
                 "  * Get involved with the Drupal community:",
-                "      https://www.drupal.org/getting-involved",
-                "  * Remove the plugin that prints this message:",
-                "      composer remove drupal/core-project-message"
+                "      https://www.drupal.org/getting-involved"
             ]
         }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "mkdir -p config/sync web/sites/default/files private_files tmp",
+            "cp example.env .env",
+            "cp drush/example.drush.yml drush/drush.yml"
+        ]
     }
 }
