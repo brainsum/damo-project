@@ -14,12 +14,12 @@ Note: These commands have been tested on linux (ubuntu), they might need changes
 
 ### Native composer
 
-For the latest version:
+For the latest release:
 ```shell script
 composer create-project brainsum/damo-project my-damo-project
 ```
 
-For a specific version:
+For a specific release:
 ```shell script
 composer create-project brainsum/damo-project:0.1.0 my-damo-project
 ```
@@ -50,3 +50,8 @@ For starting and stopping the environment you can use the helper scripts provide
 ### Drush
 
 Copy `drush/example.drush.yml` as `drush/drush.yml`. Update its contents as required.
+
+
+## Development
+
+For development info see the [DEVELOPMENT.md](./DEVELOPMENT.md) file.
