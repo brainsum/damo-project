@@ -51,6 +51,15 @@ For starting and stopping the environment you can use the helper scripts provide
 
 Copy `drush/example.drush.yml` as `drush/drush.yml`. Update its contents as required.
 
+## Usage
+### Main site
+
+Upload your assets and that's it. You can download them, images can be styled for social media purposes, logo can be added, etc.
+
+### API
+
+The JSON:API module has been enabled, so you can serve your assets through that. An example would be using the [FileField Sources JSON API
+](https://www.drupal.org/project/filefield_sources_jsonapi) module that allows you to configure file fields to allow downloading files from DAMo directly via the API.
 
 ## Development
 
