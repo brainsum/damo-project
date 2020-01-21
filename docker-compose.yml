@@ -32,6 +32,10 @@ services:
       DB_DRIVER: mysql
       PHP_FPM_USER: wodby
       PHP_FPM_GROUP: wodby
+      ## Custom
+      PHP_POST_MAX_SIZE: "500M"
+      PHP_UPLOAD_MAX_FILESIZE: "500M"
+      ##
     ## Read instructions at https://wodby.com/docs/stacks/php/local/#xdebug
     #      PHP_XDEBUG: 1
     #      PHP_XDEBUG_DEFAULT_ENABLE: 1
@@ -66,6 +70,9 @@ services:
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
       NGINX_VHOST_PRESET: drupal8
+      ## Custom
+      NGINX_CLIENT_MAX_BODY_SIZE: "500m"
+      ##
     #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
       - ./:/var/www/html
