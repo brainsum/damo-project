@@ -51,6 +51,16 @@ For starting and stopping the environment you can use the helper scripts provide
 
 Copy `drush/example.drush.yml` as `drush/drush.yml`. Update its contents as required.
 
+### Filesystem permission fixes
+
+E.g on linux, you must fix file and directory permissions as well, e.g for "private_files", "web/sites/default/files", "tmp", ...
+
+### Install
+
+Use `drush site-install --account-pass=somestrongpass --site-mail=mail@currentsite.com --site-name=DAMo damo -y`
+
+You also might want to add `--account-name` and `--account-mail`.
+
 ## Usage
 ### Main site
 
