@@ -19,17 +19,9 @@
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-        "dropzone": {
-            "type": "package",
-            "package": {
-                "name": "enyo-drupal/dropzone",
-                "version": "v4.3.0",
-                "type": "drupal-library",
-                "dist": {
-                    "url": "https://github.com/enyo/dropzone/archive/v4.3.0.zip",
-                    "type": "zip"
-                }
-            }
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     },
     "require": {
@@ -80,7 +72,11 @@
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
@@ -88,6 +84,7 @@
             "web/modules/custom/{$name}": ["type:drupal-custom-module"],
             "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
         },
+        "installer-types": ["bower-asset", "npm-asset"],
         "drupal-core-project-message": {
             "include-keys": ["homepage", "support"],
             "post-create-project-cmd-message": [
